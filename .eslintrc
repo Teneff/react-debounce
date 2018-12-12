@@ -1,0 +1,27 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "plugin:flowtype/recommended",
+    "react-app",
+    "airbnb"
+  ],
+  "env": {
+    "browser": true
+  },
+  "overrides": [
+    {
+      "files": ["src/**/*.spec.jsx", "src/**/*.test.jsx"],
+      "env": {
+        "jest": true
+      },
+      "rules": {
+        "import/no-extraneous-dependencies": [
+          "error",
+          {
+            "devDependencies": true
+          }
+        ]
+      }
+    }
+  ]
+}
