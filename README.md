@@ -66,8 +66,8 @@ class MyComponent extends React.Component {
 [coverage-image]: https://coveralls.io/repos/github/teneff/react-debounce/badge.svg?branch=develop
 [coverage-url]: https://coveralls.io/github/teneff/react-debounce?branch=develop
 
-[slack-image]: https://img.shields.io/badge/%23snake-ff69b4.svg?logo=slack&label=slack
-[slack-url]: https://dip-in-milk.slack.com/messages/CCCAVG2N5
+[slack-image]: https://img.shields.io/badge/%23react--debounce-ff69b4.svg?logo=slack&label=slack
+[slack-url]: https://dip-in-milk.slack.com/messages/CFASVNPCG
 
 [issues-image]: https://img.shields.io/github/issues/teneff/react-debounce.svg?logo=github
 [issues-url]: https://github.com/teneff/react-debounce/issues
