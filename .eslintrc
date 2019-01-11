@@ -5,6 +5,9 @@
     "react-app",
     "airbnb"
   ],
+  "plugins": [
+    "flowtype"
+  ],
   "env": {
     "browser": true
   },

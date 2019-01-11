@@ -4,44 +4,123 @@ import { Simulate } from 'react-dom/test-utils';
 
 import Debounce from '.';
 
+jest.useFakeTimers();
+let wrapper;
+beforeAll(() => {
+  wrapper = document.createElement('div');
+});
+
 describe('<Debounce />', () => {
-  let wrapper;
-  beforeAll(() => {
-    wrapper = document.createElement('div');
+  const callback = jest.fn();
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
-  describe('when mounted', () => {
-    it('should render it`s childrend function', () => {
-      const callback = jest.fn();
+  describe('without delay', () => {
+    beforeAll(() => {
       ReactDOM.render(
         <Debounce callback={callback}>
           {debounced => (
             <button
               type="button"
-              onClick={() => {
-                debounced('hello');
-              }}
+              onClick={debounced}
             >
-            click me
+                click me
             </button>
           )}
-        </Debounce>, wrapper,
+        </Debounce>,
+        wrapper,
       );
+    });
 
+    it('should render it`s childrend function', () => {
       const button = wrapper.querySelector('button');
       Simulate.click(button);
-      button.click();
-      // expect(wrapper.querySelector('button')).toEqual('asd');
-      expect(callback).toHaveBeenCalledWith('hello');
+      expect(setTimeout).toHaveBeenCalledTimes(1);
+      jest.runAllTimers();
+      expect(callback).toHaveBeenCalledWith(expect.objectContaining({
+        type: 'click',
+        target: expect.any(Object),
+      }));
     });
   });
 
   describe('when unmounted', () => {
     beforeAll(() => {
-      ReactDOM.unmountComponentAtNode(wrapper);
+      ReactDOM.render(
+        <Debounce callback={callback}>
+          {() => <span />}
+        </Debounce>,
+        wrapper,
+      );
     });
-    it('renders without crashing', () => {
 
+    it('should not throw errors', () => {
+      expect(() => ReactDOM.unmountComponentAtNode(wrapper)).not.toThrow();
+    });
+  });
+
+  describe('with delay', () => {
+    beforeAll(() => {
+      ReactDOM.render(
+        <Debounce callback={callback} delay={500}>
+          {debounced => (
+            <button
+              type="button"
+              onClick={debounced}
+            >
+                click me
+            </button>
+          )}
+        </Debounce>,
+        wrapper,
+      );
+    });
+
+    describe('when button has been clicked multiple times', () => {
+      it('should trigger the callback only once', () => {
+        const button = wrapper.querySelector('button');
+        Simulate.click(button);
+        Simulate.click(button);
+        Simulate.click(button);
+        Simulate.click(button);
+        Simulate.click(button);
+        expect(setTimeout).toHaveBeenCalledTimes(5);
+        jest.runAllTimers();
+        expect(callback).toHaveBeenCalledTimes(1);
+        expect(callback).toHaveBeenCalledWith(expect.objectContaining({
+          type: 'click',
+          target: expect.any(Object),
+        }));
+      });
+    });
+  });
+
+  describe('when button is clicked and unmounted', () => {
+    beforeAll(() => {
+      ReactDOM.render(
+        <Debounce callback={callback} delay={500}>
+          {debounced => (
+            <button
+              type="button"
+              onClick={debounced}
+            >
+                click me
+            </button>
+          )}
+        </Debounce>,
+        wrapper,
+      );
+    });
+
+    it('it should clear the timeout and should not call the callback', () => {
+      const button = wrapper.querySelector('button');
+      Simulate.click(button);
+      expect(setTimeout).toHaveBeenCalledTimes(1);
+      ReactDOM.unmountComponentAtNode(wrapper);
+      jest.runAllTimers();
+      expect(clearTimeout).toHaveBeenCalled();
+      expect(callback).not.toHaveBeenCalled();
     });
   });
 });
