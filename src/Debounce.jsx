@@ -2,7 +2,14 @@
 import React from 'react';
 
 type Props = {
+  /**
+   * Milliseconds to delay the callback
+   */
   delay?: number,
+  /**
+   * callback to be called once
+   * the delay period is over
+   */
   callback: (T) => void,
   children: (T) => React.Node,
 }
@@ -13,16 +20,12 @@ export default class Debounce extends React.Component<Props> {
   };
 
   componentWillUnmount() {
-    if (this.timeout) {
-      clearTimeout(this.timeout);
-    }
+    clearTimeout(this.timeout);
   }
 
   createDebounced = (...args) => {
     const { callback, delay } = this.props;
-    if (this.timeout) {
-      clearTimeout(this.timeout);
-    }
+    clearTimeout(this.timeout);
     this.timeout = setTimeout(() => callback(...args), delay);
   };
 
