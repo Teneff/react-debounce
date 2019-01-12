@@ -60,11 +60,11 @@ class MyComponent extends React.Component {
 [npm-img]: https://img.shields.io/npm/v/@teneff/react-debounce.svg?logo=npm
 [npm-url]: https://www.npmjs.com/package/@teneff/react-debounce
 
-[build-img]: https://img.shields.io/travis/com/teneff/react-debounce.svg?logo=travis
-[build-url]: https://travis-ci.org/teneff/react-debounce
+[build-img]: https://img.shields.io/travis/com/Teneff/react-debounce.svg?logo=travis
+[build-url]: https://travis-ci.com/Teneff/react-debounce
 
-[coverage-image]: https://coveralls.io/repos/github/teneff/react-debounce/badge.svg?branch=develop
-[coverage-url]: https://coveralls.io/github/teneff/react-debounce?branch=develop
+[coverage-image]: https://img.shields.io/coveralls/github/Teneff/react-debounce.svg
+[coverage-url]: https://coveralls.io/github/Teneff/react-debounce
 
 [slack-image]: https://img.shields.io/badge/%23react--debounce-ff69b4.svg?logo=slack&label=slack
 [slack-url]: https://dip-in-milk.slack.com/messages/CFASVNPCG
