@@ -60,7 +60,7 @@ class MyComponent extends React.Component {
 [npm-img]: https://img.shields.io/npm/v/@teneff/react-debounce.svg?logo=npm
 [npm-url]: https://www.npmjs.com/package/@teneff/react-debounce
 
-[build-img]: https://img.shields.io/travis/teneff/react-debounce/develop.svg?logo=travis
+[build-img]: https://img.shields.io/travis/com/teneff/react-debounce.svg?logo=travis
 [build-url]: https://travis-ci.org/teneff/react-debounce
 
 [coverage-image]: https://coveralls.io/repos/github/teneff/react-debounce/badge.svg?branch=develop
@@ -69,8 +69,8 @@ class MyComponent extends React.Component {
 [slack-image]: https://img.shields.io/badge/%23react--debounce-ff69b4.svg?logo=slack&label=slack
 [slack-url]: https://dip-in-milk.slack.com/messages/CFASVNPCG
 
-[issues-image]: https://img.shields.io/github/issues/teneff/react-debounce.svg?logo=github
+[issues-image]: https://img.shields.io/github/issues/teneff/react-debounce.svg?logo=github&logoColor=fff
 [issues-url]: https://github.com/teneff/react-debounce/issues
 
-[github-stars-img]: https://img.shields.io/github/stars/teneff/react-debounce.svg?logo=github
+[github-stars-img]: https://img.shields.io/github/stars/teneff/react-debounce.svg?logo=github&logoColor=fff
 [github-stars-url]: https://github.com/teneff/react-debounce/stargazers
