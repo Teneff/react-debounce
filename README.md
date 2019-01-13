@@ -21,38 +21,40 @@ npm install @teneff/react-debounce
 yarn add @teneff/react-debounce
 ```
 
+## Live Demo
+[![codesandbox-img]][codesandbox-url]
+
 ## Usage
 
 ```jsx
 import Debounce from '@teneff/react-debounce';
 
 class MyComponent extends React.Component {
+  handleClick = () => {
+    console.info("event handler will be executed once after multiple clicks");
+  };
 
-  handleClick = e => {
-    console.info(e);
-  }
-
-  handleKeyUp = e => {
-    console.info('event handler will be executed when you stop typing', e);
-  }
+  handleKeyUp = value => {
+    console.info("event handler will be executed when you stop typing", value);
+  };
 
   render() {
     return (
       <div>
         <Debounce callback={this.handleClick} delay={300}>
-          {onClick => {
-            <button onClick={onClick}>
-              click me, wait, profit
-            </button>
-          }}
+          {onClick => <button onClick={onClick}>click me, wait, profit</button>}
         </Debounce>
         <Debounce callback={this.handleKeyUp} delay={500}>
-          {onKeyUp => {
-            <input onKeyUp={onKeyUp} value="" placeholder="Start typing..." />
-          }}
+          {onKeyUp => (
+            <input
+              type="text"
+              onKeyUp={e => onKeyUp(e.target.value)}
+              placeholder="Start typing..."
+            />
+          )}
         </Debounce>
       </div>
-    )
+    );
   }
 }
 ```
@@ -74,3 +76,6 @@ class MyComponent extends React.Component {
 
 [github-stars-img]: https://img.shields.io/github/stars/teneff/react-debounce.svg?logo=github&logoColor=fff
 [github-stars-url]: https://github.com/teneff/react-debounce/stargazers
+
+[codesandbox-img]: https://codesandbox.io/static/img/play-codesandbox.svg
+[codesandbox-url]: https://codesandbox.io/s/927l985x94 
