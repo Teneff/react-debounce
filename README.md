@@ -1,7 +1,7 @@
 # React &lt;Debounce /&gt; Component
 Using render props to debounce a callback. Useful for preventing multiple callback executions on scroll, spam-clicking, typing etc. 
 
-[![NPM version][npm-img]][npm-url]
+[![NPM version][npm-img-latest]][npm-url]
 [![Build Status][build-img]][build-url]
 [![Coverage Status][coverage-image]][coverage-url]
 [![GitHub issues][issues-image]][issues-url]
@@ -59,19 +59,20 @@ class MyComponent extends React.Component {
 }
 ```
 
-[npm-img]: https://img.shields.io/npm/v/@teneff/react-debounce.svg?logo=npm
+[npm-img-latest]: https://img.shields.io/npm/v/@teneff/react-debounce/latest.svg?logo=npm&style=flat
+[npm-img-next]: https://img.shields.io/npm/v/@teneff/react-debounce/next.svg?logo=npm&style=flat
 [npm-url]: https://www.npmjs.com/package/@teneff/react-debounce
 
-[build-img]: https://img.shields.io/travis/com/Teneff/react-debounce.svg?logo=travis
-[build-url]: https://travis-ci.com/Teneff/react-debounce
+[build-img]: https://img.shields.io/circleci/project/github/Teneff/react-debounce/master.svg?label=master&logo=circleci&style=flat
+[build-url]: https://circleci.com/gh/Teneff/react-debounce/tree/master
 
-[coverage-image]: https://img.shields.io/coveralls/github/Teneff/react-debounce.svg
-[coverage-url]: https://coveralls.io/github/Teneff/react-debounce
+[coverage-image]: https://img.shields.io/codecov/c/github/Teneff/react-debounce/master.svg?logo=codecov&style=flat
+[coverage-url]: https://codecov.io/gh/Teneff/react-debounce/branch/master
 
 [slack-image]: https://img.shields.io/badge/%23react--debounce-ff69b4.svg?logo=slack&label=slack
 [slack-url]: https://dip-in-milk.slack.com/messages/CFASVNPCG
 
-[issues-image]: https://img.shields.io/github/issues/teneff/react-debounce.svg?logo=github&logoColor=fff
+[issues-image]: https://img.shields.io/github/issues/Teneff/react-debounce/bug.svg?logo=github&style=flat
 [issues-url]: https://github.com/teneff/react-debounce/issues
 
 [github-stars-img]: https://img.shields.io/github/stars/teneff/react-debounce.svg?logo=github&logoColor=fff
