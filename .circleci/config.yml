@@ -61,6 +61,17 @@ jobs:
           name: Upload coverage
           command: yarn codecov
 
+  outdated:
+    <<: *defaults
+
+    steps:
+      - checkout
+      - *restore_yarn_cache
+
+      - run:
+          name: Check dependencies
+          comamnd: yarn outdated
+
   build:
     <<: *defaults
 
