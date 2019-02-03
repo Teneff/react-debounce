@@ -67,10 +67,11 @@ jobs:
     steps:
       - checkout
       - *restore_yarn_cache
+      - *dependencies
 
       - run:
           name: Check dependencies
-          comamnd: yarn outdated
+          command: yarn outdated
 
   build:
     <<: *defaults
