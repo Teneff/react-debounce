@@ -98,6 +98,10 @@ jobs:
           command: npm version prerelease --preid=rc
 
       - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
+
+      - run:
           name: Publish to npmjs
           command: npm publish --tag next
 
