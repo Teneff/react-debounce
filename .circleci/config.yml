@@ -1,0 +1,123 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+defaults: &defaults
+  docker:
+    - image: circleci/node:8.15
+
+yarn_key: &yarn_key
+  key: v2-yarn-sha-{{ checksum "yarn.lock" }}
+
+restore_yarn_cache: &restore_yarn_cache
+  restore_cache:
+    <<: *yarn_key
+
+dependencies: &dependencies
+  run:
+    name: Install dependencies
+    command: yarn install --frozen-lockfile
+
+version: 2
+jobs:
+  checkout:
+    <<: *defaults
+
+    steps:
+      - checkout
+      - *restore_yarn_cache
+      - *dependencies
+
+      - save_cache:
+          <<: *yarn_key
+          paths:
+            - ~/.cache/yarn/v4
+
+  lint:
+    <<: *defaults
+
+    steps:
+      - checkout
+      - *restore_yarn_cache
+      - *dependencies
+
+      - run:
+          name: Lint
+          command: yarn lint
+
+  test:
+    <<: *defaults
+
+    steps:
+      - checkout
+      - *restore_yarn_cache
+      - *dependencies
+
+      - run:
+          name: Run tests
+          command: yarn test
+
+      - run:
+          name: Upload coverage
+          command: yarn codecov
+
+  build:
+    <<: *defaults
+
+    steps:
+      - checkout
+      - *restore_yarn_cache
+      - *dependencies
+
+      - run:
+          name: Build library
+          command: yarn build
+
+  publish:
+    <<: *defaults
+
+    steps:
+      - checkout
+      - *restore_yarn_cache
+      - *dependencies
+
+      - run:
+          name: Publish to npmjs
+          command: echo "@todo"
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - checkout
+      - build:
+          requires:
+            - checkout
+      - lint:
+          requires:
+            - checkout
+      - test:
+          requires:
+            - checkout
+      - outdated:
+          requires:
+            - checkout
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - build:
+          requires:
+            - test
+            - lint
+            - checkout
+      - publish:
+          requires:
+            - outdated
+            - build
+          filters:
+            branches:
+              only:
+                - master
+                - develop
