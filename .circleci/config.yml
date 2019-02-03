@@ -94,8 +94,12 @@ jobs:
       - *dependencies
 
       - run:
+          name: Version bump
+          command: npm version prerelease --preid=rc
+
+      - run:
           name: Publish to npmjs
-          command: echo "@todo"
+          command: npm publish --tag next
 
 workflows:
   version: 2
@@ -131,5 +135,4 @@ workflows:
           filters:
             branches:
               only:
-                - master
                 - develop
