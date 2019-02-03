@@ -20,6 +20,9 @@
     "Callback",
     "Delay"
   ],
+  "files": [
+    "lib/*"
+  ],
   "author": "Stefan Teneff <st.teneff@gmail.com>",
   "license": "MIT",
   "bugs": {
