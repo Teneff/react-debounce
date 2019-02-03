@@ -6,6 +6,8 @@ defaults: &defaults
   docker:
     - image: circleci/node:8.15
 
+  working_directory: ~/repo
+
 yarn_key: &yarn_key
   key: v2-yarn-sha-{{ checksum "yarn.lock" }}
 
