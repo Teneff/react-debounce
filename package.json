@@ -7,8 +7,7 @@
     "lint": "eslint --ignore-path .gitignore .",
     "build": "cross-env NODE_ENV=production BABEL_ENV=es babel ./src --out-dir ./lib",
     "test": "jest --coverage src",
-    "codecov": "codecov",
-    "postversion": "git push && git push --tags"
+    "codecov": "codecov"
   },
   "repository": {
     "type": "git",
