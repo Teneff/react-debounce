@@ -1,12 +1,13 @@
 {
   "name": "@teneff/react-debounce",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React Debounce Component",
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint --ignore-path .gitignore .",
     "build": "cross-env NODE_ENV=production BABEL_ENV=es babel ./src --out-dir ./lib",
-    "test": "jest --coverage src"
+    "test": "jest --coverage src",
+    "codecov": "codecov"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,9 @@
     "Component",
     "Callback",
     "Delay"
+  ],
+  "files": [
+    "lib/*"
   ],
   "author": "Stefan Teneff <st.teneff@gmail.com>",
   "license": "MIT",
@@ -34,18 +38,18 @@
     "@babel/preset-react": "^7.0.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^23.6.0",
-    "coveralls": "^3.0.2",
+    "babel-jest": "^24.0.0",
+    "codecov": "^3.1.0",
     "cross-env": "^5.2.0",
     "eslint": "^5.10.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-react-app": "^3.0.5",
     "eslint-plugin-flowtype": "^3.2.1",
     "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.11.1",
     "flow": "^0.2.3",
-    "jest": "^23.6.0",
+    "jest": "^24.0.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
