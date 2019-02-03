@@ -1,6 +1,6 @@
 {
   "name": "@teneff/react-debounce",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React Debounce Component",
   "main": "lib/index.js",
   "scripts": {
