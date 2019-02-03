@@ -95,7 +95,7 @@ jobs:
 
       - run:
           name: Version bump
-          command: npm version prerelease --preid=rc
+          command: npm version prerelease --preid=rc --no-git-tag-version
 
       - run:
           name: Authenticate with registry
